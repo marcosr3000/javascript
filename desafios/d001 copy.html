@@ -25,24 +25,25 @@
 
 <body>
     <h1>Desafio das Mensagens</h1>
-    <input id="b1" type="button" onclick="clicar1()" value="Botão 1">
-    <input id="b2" type="button" onclick="clicar2()" value="Botão 2">
-    <input id="b3" type="button" onclick="clicar3()" value="Botão 3">
+    <input id="b1" type="button" onclick="clicar(this)" value="Botão 1">
+    <input id="b2" type="button" onclick="clicar(this)" value="Botão 2">
+    <input id="b3" type="button" onclick="clicar(this)" value="Botão 3">
 
     <script>
-        var a = window.document.getElementById('b1')
-        var b = window.document.getElementById('b2')
-        var c = window.document.getElementById('b3')
+        
 
-        function clicar1() {
-            alert('Você clicou no 1º botão')
+        function clicar(botao) {
+        
+            
+            alert("Você clicou no " + botao.value);
+            
         }
-        function clicar2() {
-            alert('Você clicou no 2º botão')
-        }
-        function clicar3() {
-            alert('Você clicou no 3º botão')
-        }
+        
+        // solução do stackoverflow
+        // https://pt.stackoverflow.com/questions/552101/alerta-ao-clicar-em-bot%c3%b5es
+        
+        
+
     </script>
     
 </body>
