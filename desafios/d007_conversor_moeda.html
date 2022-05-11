@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            padding: 20px;
+            font-size: 1.1em;
+            border: 1px solid lightgray;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor R$ US$</h1>
+    <input type="button" value="Converter" onclick="clicar()">
+    <div>Clique no botão acima para iniciar</div>
+
+    <script>
+        var cot = prompt('Antes de mais nada, quanto está a cotação do dólar agora?')
+        var cot2 = parseFloat(cot.replace(',','.'))
+
+        function clicar() {
+            var car = prompt('Quantos R$ você tem na carteira?')
+            var car2 = parseFloat(car.replace(',','.'))
+
+            var total = cot2 * car2
+            var total2 = total.toLocaleString('pt-br', {style: 'currency', currency: 'USD'})
+
+            var res = window.document.getElementsByTagName('div')[0]
+
+            res.innerText = `Você vai conseguir comprar ${total2}.`
+        }
+    </script>
+</body>
+</html>
