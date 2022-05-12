@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Desconto</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            font-size: 1.1em;
+            padding: 20px;
+            border: 1px solid lightgray;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Calcular Desconto</h1>
+    <input type="button" value="Desconto de 10%" onclick="clicar()">
+    <div>Clique no botão acima para iniciar.</div>
+
+    <script>
+        function clicar() {
+            var prod = prompt('Qual é o produto que você está comprando')
+            var prec = prompt(`Qual é o preço de ${prod}`)
+            var prec2 = parseFloat(prec.replace(',','.'))
+            var prec3 = prec2.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+
+            var desc = prec * 0.1
+            var desc2 = desc.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+
+            var prec_d = prec - desc
+            var prec_d2 = prec_d.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+
+            var res = window.document.getElementsByTagName('div')[0]
+            res.innerHTML = `
+            <h2>Calculando desconto de 10% para ${prod}</h2>
+            <p>O preço original era ${prec3}.</p>
+            <p>Você acaba de ganhar ${desc2} de desconto (-10%).</p>
+            <p>No fim, você vai pagar ${prec_d2} no produto ${prod}.</p>
+            `
+
+        }
+
+    </script>
+</body>
+</html>
