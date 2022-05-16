@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            font-size: 1.1em;
+            padding: 20px;
+            border: 1px solid lightgray;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <input type="button" value="Verificar" onclick="clicar()">
+    <div>Clique no botão acima para analisar a mudança de preço</div>
+
+    <script>
+        function clicar () {
+            var a = prompt('Qual era o preço anterior do produto?')
+            var b = prompt('Qual é o preço atual do produto?')
+            var a2 = parseFloat(a.replace(',','.'))
+            var b2 = parseFloat(b.replace(',','.'))
+            var a3 = a2.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+            var b3 = b2.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+
+            var rel_ab = a2 > b2 ? 'mais barato' : 'mais caro'
+
+            var dif = a2 - b2
+            // var dif2 = dif.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+            var rel_dif = dif > 0 ? `abaixou ${(dif * 1).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}` : `subiu ${(dif * -1).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}`
+            var per = (b2 - a2) / a2
+            var per2 = per * 100
+            var per3 = per2.toFixed(2)
+            var rel_per = a2 > b2 ? `${(per3 * -1).toLocaleString('pt-br')}% pra baixo` : `${(per3 * 1).toLocaleString('pt-br')}% pra cima`
+
+
+
+            var res = window.document.getElementsByTagName('div')[0]
+            res.innerHTML = `
+            <h1>Analisando os valores informados</h1>
+            <p>O produto custava ${a3} e agora custa ${b3}.</p>
+            <p>Hoje o produto está ${rel_ab}.</p>
+            <p>O preço ${rel_dif} em relação ao preço anterior.</p>
+            <p>Uma variação de ${rel_per}.</p>
+            `
+        }
+
+    </script>
+</body>
+</html>
