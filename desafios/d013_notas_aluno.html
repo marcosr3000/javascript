@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            font-size: 1.1em;
+            padding: 20px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+        }
+
+        .rep {
+            background-color: lightcoral;
+            color: brown;
+        }
+
+        .rec {
+            background-color: orange;
+            color: rgb(106, 106, 12);
+        }
+
+        .apr {
+            background-color: lightgreen;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <input type="button" value="Entrar com as notas" onclick="clicar()">
+    <div>Clique no botão acima para informar as notas do aluno</div>
+
+    <script>
+        function clicar() {
+            var nome = prompt('Qual é o nome do aluno?')
+            var n1 = prompt(`Primera nota de ${nome}:`)
+            var n2 = prompt(`Segunda nota de ${nome}:`)
+
+            var n1_2 = parseFloat(n1.replace(',','.'))
+            var n2_2 = parseFloat(n2.replace(',','.'))
+
+            var media = (n1_2 + n2_2) / 2
+            var media2 = media.toLocaleString('pt-br')
+            
+
+            var aval = media < 3 ? 'abaixo de 3,0, o aluno está <mark class="rep">REPROVADO</mark>' : (media >=3 && media < 6 ? 'entre 3,0 e 6,0, o aluno está em <mark class="rec">RECUPERAÇÃO</mark>' : 'acima de 6,0, o aluno está <mark class="apr">APROVADO</mark>')
+
+            var res = window.document.getElementsByTagName('div')[0]
+            res.innerHTML = `
+            <h1>Analisando a situação de ${nome}</h1>
+            <p>Com as notas ${n1} e ${n2} a <strong>média é ${media2}</strong></p>
+            <p>Com média ${aval}</p>
+            `
+        }
+    </script>
+</body>
+</html>
