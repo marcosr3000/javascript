@@ -33,7 +33,7 @@
             var car = prompt('Quantos R$ você tem na carteira?')
             var car2 = parseFloat(car.replace(',','.'))
 
-            var total = cot2 * car2
+            var total = cot2 / car2
             var total2 = total.toLocaleString('pt-br', {style: 'currency', currency: 'USD'})
 
             var res = window.document.getElementsByTagName('div')[0]
