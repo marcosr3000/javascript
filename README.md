@@ -16,7 +16,7 @@ Course available on [**YouTube**](https://www.youtube.com/playlist?list=PLntvgXM
 
 [<img style="box-shadow: 1px 1px 5px black" src="https://github.com/marcosr3000/javascript_exercicios_desafios/blob/main/aulas/aula12_ex/ex015_verificar_idade/age-thumb.jpg?raw=true" alt="Age Checker thumbnail">](https://marcosr3000.github.io/javascript_exercicios_desafios/aulas/aula12_ex/ex015_verificar_idade/)
 
-<!---This web page contains links to my social medias shown in a mocked up mobile phone screen. I worked with iframes, responsive design, CSS transitions and animations.-->
+<!---When you fill the year field, select a gender and press the check button, the page give to you the current age (based on current year) and a picture of an average person with this age.-->
 
 ##
 
